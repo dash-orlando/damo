@@ -19,11 +19,6 @@ Fluvio L. Lobo Fenoglietto
 12/19/2019
 '''
 
-# variables
-variables = [ 'Number of timesteps',
-              'Time step size']
-values = []
-
 # functions ========================================================================== #
 
 def _get_variables( file, variables ):
@@ -60,7 +55,4 @@ def _get_variables( file, variables ):
 
     return variables, values
 
-# GO ================================================================================= #
-
-
-variables, values = _get_variables( file, variables )
+# ------------------------------------------------------------------------------------ #

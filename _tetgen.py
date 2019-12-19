@@ -102,7 +102,7 @@ def _get_state( file ):
 def _write_node( node, x, y, z, file ):
 
     '''
-    Write-out .node file for the input coordinates {x,y,z}
+    Write-out .node file for the input coordinates {x,y,z} [1]
     '''
     
     node_file = open( file, "w" )
@@ -114,6 +114,8 @@ def _write_node( node, x, y, z, file ):
 
     node_file.close()
     
+
+# ------------------------------------------------------------------------------------ #
 
 
 '''

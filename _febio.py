@@ -23,11 +23,6 @@ Fluvio L. Lobo Fenoglietto
 variables = [ 'Number of timesteps',
               'Time step size']
 values = []
-input_dir   = r'input'
-log_file    = r'arch_3.log'
-file        = '{}\{}'.format( input_dir, log_file )
-
-
 
 # functions ========================================================================== #
 

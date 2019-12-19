@@ -18,10 +18,6 @@ Fluvio L. Lobo Fenoglietto
 12/19/2019
 '''
 
-# variables
-input_dir   = r'input'
-log_file    = r'arch_3.log'
-file        = '{}\{}'.format( input_dir, log_file )
 
 # functions ========================================================================== #
 

@@ -61,11 +61,18 @@ def _get_state( file ):
                     num    = False
 
                     # save data
-                    data[state[len(state)-1]]          = {}
-                    data[state[len(state)-1]]['node']  = node
-                    data[state[len(state)-1]]['x']     = x
-                    data[state[len(state)-1]]['y']     = y
-                    data[state[len(state)-1]]['z']     = z
+                    data[state[len(state)-1]]           = {}
+                    data[state[len(state)-1]]['time']   = time[len(time)-1]
+                    data[state[len(state)-1]]['node']   = node
+                    data[state[len(state)-1]]['x']      = x
+                    data[state[len(state)-1]]['y']      = y
+                    data[state[len(state)-1]]['z']      = z
+
+                    # clear arrays
+                    node    = []
+                    x       = []
+                    y       = []
+                    z       = []
 
                 elif trimmed_line[0] == 'Step':
                     state.append( trimmed_line[ len( trimmed_line ) - 1 ] )
@@ -89,7 +96,28 @@ def _get_state( file ):
 
         return data
 
-# GO ================================================================================= #
+# ------------------------------------------------------------------------------------ #
 
 
-data = _get_state( file )
+def _write_node( node, x, y, z, file ):
+
+    '''
+    Write-out .node file for the input coordinates {x,y,z}
+    '''
+    
+    node_file = open( file, "w" )
+
+    for i in range( 0, len( node ) ):
+        if i == 0:
+            node_file.write( '{} {} {} {} \n'.format( len( node ), 3, 0, 0 ) )
+        node_file.write( '{} {} {} {} \n'.format( node[i], x[i], y[i], z[i] ) )
+
+    node_file.close()
+    
+
+
+'''
+References
+1. .node files (https://wias-berlin.de/software/tetgen/fformats.node.html)
+
+'''
